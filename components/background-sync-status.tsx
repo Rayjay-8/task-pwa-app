@@ -13,7 +13,7 @@ interface BackgroundSyncStatusProps {
 
 export function BackgroundSyncStatus({ enabled, interval = 60000 }: BackgroundSyncStatusProps) {
   const { isPolling, lastCheck, error, checkForNotifications } = useBackgroundSync({
-    enabled,
+    enabled: true, // Always enable background sync, but use enabled prop to control automatic polling
     interval,
   })
 
@@ -66,7 +66,7 @@ export function BackgroundSyncStatus({ enabled, interval = 60000 }: BackgroundSy
             variant="outline"
             size="sm"
             onClick={checkForNotifications}
-            disabled={!enabled}
+            disabled={false}
             className="flex items-center gap-2 bg-transparent"
           >
             <RefreshCw className="w-4 h-4" />

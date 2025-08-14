@@ -63,6 +63,8 @@ export function useNotifications() {
     const permission = await Notification.requestPermission()
     setPermission(permission)
 
+    alert(permission)
+
     if (permission === "granted") {
       setSettings((prev) => ({ ...prev, enabled: true }))
       toast({

@@ -23,7 +23,7 @@ export async function GET() {
     const lastCheck = now - 60000 // Last minute
 
     // Simulate some random notifications for demo purposes
-    const shouldHaveNotification = Math.random() > 0.7 // 30% chance
+    const shouldHaveNotification = false // 30% chance
 
     if (shouldHaveNotification && notificationQueue.length === 0) {
       const notifications: NotificationData = {

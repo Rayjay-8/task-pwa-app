@@ -16,6 +16,14 @@ export function NotificationSettings() {
     await requestPermission()
   }
 
+
+  // return (
+  //   <div>
+  //     <h1>Notification Settings</h1>
+  //     {JSON.stringify(permission)}
+  //   </div>
+  // )
+
   return (
     <div className="space-y-4">
       {/* Basic Notifications */}

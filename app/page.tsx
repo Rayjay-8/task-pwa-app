@@ -166,7 +166,7 @@ export default function TaskManager() {
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Header */}
         <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold text-gray-900">Task Manager</h1>
+          <h1 className="text-4xl font-bold text-gray-900">Task Manager v1.0</h1>
           <p className="text-gray-600">Gerencie suas tarefas com notificações inteligentes</p>
           <Button variant="outline" onClick={() => setShowSettings(!showSettings)} className="flex items-center gap-2">
             <SettingsIcon className="w-4 h-4" />
@@ -178,7 +178,7 @@ export default function TaskManager() {
         {showSettings && (
           <div className="space-y-4">
             <NotificationSettings />
-            <BackgroundSyncStatus enabled={settings.enabled} interval={60000} />
+            <BackgroundSyncStatus enabled={true} interval={60000} />
           </div>
         )}
 

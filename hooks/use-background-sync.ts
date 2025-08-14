@@ -25,11 +25,13 @@ export function useBackgroundSync(options: BackgroundSyncOptions = { interval: 6
   const [lastCheck, setLastCheck] = useState<Date | null>(null)
   const [error, setError] = useState<string | null>(null)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
-  const { showNotification, settings } = useNotifications()
+  const { showNotification, settings, permission } = useNotifications()
 
   const checkForNotifications = useCallback(async () => {
-    if (!settings.enabled) return
+    // alert(permission)
 
+    if (permission !== "granted") return
+    
     try {
       setError(null)
       const response = await fetch("/api/notify", {
@@ -38,7 +40,7 @@ export function useBackgroundSync(options: BackgroundSyncOptions = { interval: 6
           "Content-Type": "application/json",
         },
       })
-
+      
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
